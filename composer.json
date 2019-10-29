@@ -1,0 +1,19 @@
+{
+    "name": "olegkorolenko/scv-parser",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Oleg Korolenko",
+            "email": "olegkorolenko.legoex@gmail.com"
+        }
+    ],
+    "require": {
+        "league/csv": "^9.4",
+        "symfony/var-dumper": "^4.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "CSVReporter\\": "src/"
+        }
+    }
+}
