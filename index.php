@@ -1,11 +1,14 @@
 <?php
-
+use Reporter\CSVReporter;
+use Templates\SimpleReportTemplate;
 
 if ($_FILES['file']['tmp_name']) {
+
     include_once 'vendor/autoload.php';
     $file = $_FILES['file']['tmp_name'];
-    $parser = new \CSVReporter\CSVReporter($file);
-    $parser->makeReport();
+    $report = new CSVReporter($file);
+    $report->parse();
+    $report->printReport(new SimpleReportTemplate());
     die();
 }
 ?>

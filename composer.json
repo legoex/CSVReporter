@@ -9,11 +9,15 @@
     ],
     "require": {
         "league/csv": "^9.4",
-        "symfony/var-dumper": "^4.3"
+        "symfony/var-dumper": "^4.3",
+        "ext-json": "^1.7"
     },
     "autoload": {
         "psr-4": {
-            "CSVReporter\\": "src/"
+            "Activity\\": "src/",
+            "API\\": "src/API/",
+            "Reporter\\": "src/Reporter/",
+            "Templates\\": "src/Templates/"
         }
     }
 }
