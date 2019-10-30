@@ -17,6 +17,7 @@
             "Activity\\": "src/",
             "API\\": "src/API/",
             "Reporter\\": "src/Reporter/",
+            "ReportTypes\\": "src/Reporter/ReportTypes",
             "Templates\\": "src/Templates/"
         }
     }

@@ -2,6 +2,7 @@
 
 namespace Reporter;
 
+use ReportTypes\ReportType;
 use SplFileObject;
 use Templates\IReportTemplate;
 use Templates\ReportTemplate;
@@ -22,7 +23,7 @@ abstract class Reporter
         }
     }
 
-    abstract public function parse();
+    abstract public function parse(ReportType $reportType);
 
     abstract public function printReport(ReportTemplate $template);
 

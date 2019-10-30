@@ -6,6 +6,5 @@ namespace Templates;
 
 abstract class ReportTemplate
 {
-    abstract public static function print($data);
-
+    abstract public static function print(array $data);
 }

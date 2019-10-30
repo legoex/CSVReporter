@@ -1,15 +1,17 @@
 <?php
+use ReportTypes\FirstReport;
 use Reporter\CSVReporter;
-use Templates\SimpleReportTemplate;
+
 
 if ($_FILES['file']['tmp_name']) {
 
     include_once 'vendor/autoload.php';
     $file = $_FILES['file']['tmp_name'];
     $report = new CSVReporter($file);
-    $report->parse();
-    $report->printReport(new SimpleReportTemplate());
-    die();
+    $report->parse(new FirstReport());
+    $report->printReport(new \Templates\SimpleReportTemplate());
+    $report->printReport(new \Templates\TableReportTemplate());
+    exit();
 }
 ?>
 <!DOCTYPE html>

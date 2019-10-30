@@ -4,10 +4,11 @@
 namespace Templates;
 
 
-class SimpleReportTemplate extends ReportTemplate
+class TableReportTemplate extends ReportTemplate
 {
     public static function print(array $data)
     {
+        echo '<h1>TableReportTemplate</h1>';
         foreach ($data as $id => $result) {
             echo "As a result report for Customer ID <strong>$id</strong> we have:<br>";
             echo "Number of customer's calls within same continent: <strong>" . $result['cntOneContinent'] . "</strong>.<br>";
@@ -17,4 +18,5 @@ class SimpleReportTemplate extends ReportTemplate
             echo "<br><strong>Done!</strong><br>";
         }
     }
+
 }
