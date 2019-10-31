@@ -1,11 +1,11 @@
 <?php
 
 namespace API;
-class GeoNamesAdapter implements IApi
+class GeoNames implements IApi
 {
     private static $geonames;
 
-    public static function getRegion($phoneNumber): ?string
+    public function getRegion($phoneNumber): ?string
     {
         if (self::$geonames) self::$geonames = unserialize(file_get_contents('geonames.txt'));
 

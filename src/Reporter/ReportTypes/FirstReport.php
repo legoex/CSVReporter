@@ -1,12 +1,10 @@
 <?php
 
-
 namespace ReportTypes;
 
-
-use Activity\CustomerActivity;
-use API\GeoNamesAdapter;
-use API\IPStackAdapter;
+use API\APIAdapter;
+use API\GeoNames;
+use API\IPStack;
 
 class FirstReport extends ReportType
 {
@@ -31,6 +29,9 @@ class FirstReport extends ReportType
     //Some specific method for getting report data
     private function getActivity($customersActivity)
     {
+        $geonamesAPI = new GeoNames();
+        $IPStackAPI = new IPStack();
+
         $result = array();
         foreach ($customersActivity as $id => $activity) {
             $result[$id] = array(
@@ -42,10 +43,13 @@ class FirstReport extends ReportType
             foreach ($activity as $item) {
                 $result[$id]['cntAll']++;
                 $result[$id]['durAll'] += $item['2'];
-                if (IPStackAdapter::getRegion($item['4']) == GeoNamesAdapter::getRegion($item['3'])) {
+                //4, 3
+                $adapter = new APIAdapter($geonamesAPI, $IPStackAPI);
+                if ($adapter->checkTheSameContinent($item['4'], $item['3'])) {
                     $result[$id]['cntOneContinent']++;
                     $result[$id]['durOneContinent'] = +(int)$item['2'];
                 }
+
             }
         }
         return $result;

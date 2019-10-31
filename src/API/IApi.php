@@ -3,5 +3,5 @@
 namespace API;
 interface IApi
 {
-    public static function getRegion($code);
+    public function getRegion($code);
 }

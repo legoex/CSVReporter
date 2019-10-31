@@ -1,11 +1,11 @@
 <?php
 
 namespace API;
-class IPStackAdapter implements IApi
+class IPStack implements IApi
 {
     private static $APIkey = 'd9f000dbc0237078dfb39bf8033d244c';
 
-    public static function getRegion($IP): ?string
+    public function getRegion($IP): ?string
     {
         $address = "http://api.ipstack.com/" . $IP . "?access_key=" . self::$APIkey;
         $data = json_decode(file_get_contents($address));
