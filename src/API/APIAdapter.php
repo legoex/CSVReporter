@@ -10,7 +10,7 @@ class APIAdapter
 
     protected $secondAPI;
 
-    public function __construct(IApi $APIFirst, IApi $APISecond)
+    public function __construct(IGeoNamesApi $APIFirst, IIPStackApi $APISecond)
     {
         $this->firstAPI = $APIFirst;
         $this->secondAPI = $APISecond;
@@ -18,7 +18,7 @@ class APIAdapter
 
     public function checkTheSameContinent(string $one, string $two): bool
     {
-        return ($this->firstAPI->getRegion($one) == $this->secondAPI->getRegion($two)) ?? true;
+        return ($this->firstAPI->getRegionByPhoneNumber($one) == $this->secondAPI->getRegionByIp($two)) ?? true;
     }
 
 }

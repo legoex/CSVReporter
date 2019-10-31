@@ -43,8 +43,9 @@ class FirstReport extends ReportType
             foreach ($activity as $item) {
                 $result[$id]['cntAll']++;
                 $result[$id]['durAll'] += $item['2'];
-                //4, 3
+                //Use Adapter
                 $adapter = new APIAdapter($geonamesAPI, $IPStackAPI);
+
                 if ($adapter->checkTheSameContinent($item['4'], $item['3'])) {
                     $result[$id]['cntOneContinent']++;
                     $result[$id]['durOneContinent'] = +(int)$item['2'];
